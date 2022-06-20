@@ -3,11 +3,14 @@
     path: "{{ docker_folder }}"
     state: directory
 
+##Clone mo ung mga repo mo galing sa gitlab, palitan mo ung djcrucena ng username mo 
 - name: Clone
   git:
     repo: "http://{{ username }}:{{ password }}@54.183.118.41:djcrucena/tomcat.git"
     dest: "{{ docker_folder }}"
 
+
+##Dito palitan mo rin URL mo , dapat same ng IP ng instance mo 
 - name: Download war file
   get_url:
     url: http://54.183.118.41/nexus/content/repositories/snapshots/DTSActivity/CurrencyConverter/1/CurrencyConverter-1.war
